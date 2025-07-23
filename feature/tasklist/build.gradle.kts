@@ -39,6 +39,8 @@ dependencies {
     implementation(libs.material)
 
     implementation(libs.lifecycle.viewmodel)
+    implementation(libs.androidx.foundation.layout)
+    implementation(libs.androidx.material3.android)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
