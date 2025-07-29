@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.fermer.auth.presentation.screen.SignInScreen
+import com.fermer.auth.presentation.screen.SignUpScreen
 import com.fermer.tasklist.presentation.TaskListViewModel
 import com.fermer.tasklist.presentation.screen.TaskListScreen
 import com.fermer.todox.ui.theme.TodoXTheme
@@ -24,9 +25,9 @@ class MainActivity : ComponentActivity() {
 
         enableEdgeToEdge()
         setContent {
-            SignInScreen { email, password ->
+            /*SignUpScreen { email, password ->
                 println("Login clicked: $email / $password")
-            }
+            }*/
 
            /* val viewModel = TaskListViewModel()
             TaskListScreen(viewModel)
