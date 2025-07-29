@@ -12,7 +12,7 @@ import com.fermer.auth.presentation.AuthViewModel
 @Composable
 fun SignUpScreen(
     onSignUpClick: (email: String, password: String) -> Unit,
-    onNavigateToSignIn: () -> Unit,
+   /* onNavigateToSignIn: () -> Unit,*/
 
 ) {
     var email by remember { mutableStateOf("") }
@@ -63,9 +63,9 @@ fun SignUpScreen(
 
             Spacer(modifier = Modifier.height(8.dp))
 
-            TextButton(onClick = onNavigateToSignIn) {
+            //TextButton(onClick = onNavigateToSignIn) {
                 Text("Already have an account? Sign in")
-            }
+            //}
 
             Spacer(modifier = Modifier.height(8.dp))
 

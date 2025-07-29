@@ -10,6 +10,7 @@ import kotlinx.coroutines.launch
 
 class AuthViewModel : ViewModel() {
 
+
     private val _uiState = MutableStateFlow(AuthUiState())
     val uiState: StateFlow<AuthUiState> = _uiState
 
