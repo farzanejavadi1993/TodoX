@@ -6,10 +6,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
-
 @Composable
 fun SignInScreen(
-    onSignInClick: (email: String, password: String) -> Unit
+    onSignInClick: (email: String, password: String) -> Unit,
+    onNavigateToSignUp: () -> Unit
 ) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -49,6 +49,15 @@ fun SignInScreen(
             modifier = Modifier.fillMaxWidth()
         ) {
             Text("Login")
+        }
+
+        Spacer(modifier = Modifier.height(24.dp))
+
+        TextButton(
+            onClick = onNavigateToSignUp,
+            modifier = Modifier.align(Alignment.CenterHorizontally)
+        ) {
+            Text("Don't have an account? Sign up")
         }
     }
 }
