@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.google.services)
+    alias(libs.plugins.hilt.android)
+    alias(libs.plugins.kotlin.kapt)
 }
 
 android {
@@ -51,11 +53,15 @@ dependencies {
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
+
     implementation(libs.androidx.material3)
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.auth)
     implementation(libs.firebase.firestore)
     implementation(libs.lifecycle.viewmodel)
+
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
 
 
     testImplementation(libs.junit)
@@ -68,4 +74,5 @@ dependencies {
 
     implementation(project(":feature:tasklist"))
     implementation(project(":feature:auth"))
+    implementation(project(":feature:task"))
 }
