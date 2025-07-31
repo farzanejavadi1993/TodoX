@@ -8,16 +8,18 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.fermer.model.TaskModel
-
 @Composable
 fun TaskListScreen(
     taskList: List<TaskModel>,
-    onAddTaskClicked: () -> Unit,
+    onAddTask: (String) -> Unit,
     onRemoveTask: (String) -> Unit
 ) {
+    var showDialog by remember { mutableStateOf(false) }
+    var newTaskTitle by remember { mutableStateOf("") }
+
     Scaffold(
         floatingActionButton = {
-            FloatingActionButton(onClick = onAddTaskClicked) {
+            FloatingActionButton(onClick = { showDialog = true }) {
                 Text("+")
             }
         }
@@ -47,6 +49,38 @@ fun TaskListScreen(
                     }
                 }
             }
+        }
+
+
+        if (showDialog) {
+            AlertDialog(
+                onDismissRequest = { showDialog = false },
+                confirmButton = {
+                    Button(onClick = {
+                        onAddTask(newTaskTitle)
+                        newTaskTitle = ""
+                        showDialog = false
+                    }) {
+                        Text("Add")
+                    }
+                },
+                dismissButton = {
+                    OutlinedButton(onClick = {
+                        showDialog = false
+                    }) {
+                        Text("Cancel")
+                    }
+                },
+                title = { Text("Add New Task") },
+                text = {
+                    OutlinedTextField(
+                        value = newTaskTitle,
+                        onValueChange = { newTaskTitle = it },
+                        label = { Text("Task Title") },
+                        singleLine = true
+                    )
+                }
+            )
         }
     }
 }
