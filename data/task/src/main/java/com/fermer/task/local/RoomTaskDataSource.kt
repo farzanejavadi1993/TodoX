@@ -1,28 +1,26 @@
 package com.fermer.task.local
 
 import androidx.room.*
+import com.fermer.model.TaskModel
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
+import javax.inject.Inject
 
-@Entity(tableName = "tasks")
-data class TaskEntity(
-    @PrimaryKey val id: String,
-    val title: String,
-    val isDone: Boolean
-)
+class RoomTaskDataSource @Inject constructor(
+    private val dao: TaskDao
+) {
 
-@Dao
-interface TaskDao {
-    @Query("SELECT * FROM tasks")
-    fun getTasks(): Flow<List<TaskEntity>>
+    fun getTasks(): Flow<List<TaskModel>> {
+        return dao.getTasks().map { list ->
+            list.map { TaskModel(it.id, it.title, it.isDone) }
+        }
+    }
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(task: TaskEntity)
+    suspend fun addTask(task: TaskModel) {
+        dao.insert(TaskEntity(task.id, task.title, task.isDone))
+    }
 
-    @Query("DELETE FROM tasks WHERE id = :taskId")
-    suspend fun delete(taskId: String)
-}
-
-@Database(entities = [TaskEntity::class], version = 1)
-abstract class TaskDatabase : RoomDatabase() {
-    abstract fun taskDao(): TaskDao
+    suspend fun removeTask(id: String) {
+        dao.delete(id)
+    }
 }
