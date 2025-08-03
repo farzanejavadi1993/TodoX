@@ -12,9 +12,9 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 abstract class TaskModule {
 
-    @Binds
+    /*@Binds
     @Singleton
     abstract fun bindTaskRepository(
         fakeTaskRepository: FakeTaskRepository
-    ): TaskRepository
+    ): TaskRepository*/
 }
