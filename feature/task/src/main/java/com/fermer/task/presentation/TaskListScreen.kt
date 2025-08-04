@@ -14,7 +14,7 @@ import com.fermer.task.presentation.components.TaskItem
 fun TaskListScreen(
     taskList: List<TaskModel>,
     onAddTask: (String) -> Unit,
-    onRemoveTask: (String) -> Unit
+    onRemoveTask: () -> Unit
 ) {
     var showDialog by remember { mutableStateOf(false) }
     var newTaskTitle by remember { mutableStateOf("") }
@@ -38,7 +38,7 @@ fun TaskListScreen(
                     items(taskList, key = { it.id }) { task ->
                         TaskItem(
                             task = task,
-                            onRemove = onRemoveTask
+                            onDelete = onRemoveTask
                         )
                     }
                 }
