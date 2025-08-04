@@ -8,6 +8,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -16,6 +17,7 @@ import com.fermer.auth.presentation.AuthViewModel
 import com.fermer.auth.presentation.screen.SignInScreen
 import com.fermer.auth.presentation.screen.SignUpScreen
 import com.fermer.task.presentation.TaskListScreen
+import com.fermer.task.presentation.TaskScreen
 import com.fermer.task.presentation.TaskViewModel
 import com.fermer.todox.ui.theme.TodoXTheme
 
@@ -28,11 +30,9 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
 
         setContent {
-            val authViewModel: AuthViewModel = viewModel()
+            //val authViewModel: TaskViewModel = hiltViewModel()
 
-            SignInScreen  { email, password ->
-                authViewModel.signIn(email, password)
-            }
+            TaskScreen()
 
 
         }
@@ -42,12 +42,12 @@ class MainActivity : ComponentActivity() {
 fun TaskListRoute(viewModel: TaskViewModel = viewModel()) {
     val tasks by viewModel.tasks.collectAsState()
 
-    TaskListScreen(
+    /*TaskListScreen(
         taskList = tasks,
         onAddTaskClicked = {
 
         },
         onRemoveTask = { id -> viewModel.removeTask(id) }
-    )
+    )*/
 }
 
