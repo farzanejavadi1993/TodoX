@@ -1,6 +1,5 @@
 package com.fermer.task.local
 
-import androidx.room.*
 import com.fermer.model.TaskModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
