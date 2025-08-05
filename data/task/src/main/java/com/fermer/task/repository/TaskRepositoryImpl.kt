@@ -4,12 +4,13 @@ package com.fermer.task.repository
 import com.fermer.model.TaskModel
 import com.fermer.model.TaskRepository
 import com.fermer.task.firebase.FirebaseTaskDataSource
+import com.fermer.task.local.RoomTaskDataSource
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class TaskRepositoryImpl @Inject constructor(
     private val firebase: FirebaseTaskDataSource,
-    private val room: RoomTaskDa
+    private val room: RoomTaskDataSource
 ) : TaskRepository {
 
     override fun getTasks(): Flow<List<TaskModel>> {
