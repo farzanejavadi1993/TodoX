@@ -2,8 +2,12 @@ package com.fermer.task.di
 
 import android.content.Context
 import androidx.room.Room
+import com.fermer.model.TaskRepository
+import com.fermer.task.firebase.FirebaseTaskDataSource
+import com.fermer.task.local.RoomTaskDataSource
 import com.fermer.task.local.TaskDao
 import com.fermer.task.local.TaskDatabase
+import com.fermer.task.repository.TaskRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -27,4 +31,5 @@ object RoomModule {
 
     @Provides
     fun provideTaskDao(db: TaskDatabase): TaskDao = db.taskDao()
+
 }
