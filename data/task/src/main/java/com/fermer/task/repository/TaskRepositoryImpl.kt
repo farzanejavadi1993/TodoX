@@ -2,9 +2,8 @@ package com.fermer.task.repository
 
 
 import com.fermer.model.TaskModel
-import com.fermer.model.TaskRepository
+import com.fermer.task.domain.TaskRepository
 import com.fermer.task.firebase.FirebaseTaskDataSource
-import com.fermer.task.local.RoomTaskDataSource
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
