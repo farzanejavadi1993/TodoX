@@ -75,4 +75,6 @@ dependencies {
     implementation(project(":feature:tasklist"))
     implementation(project(":feature:auth"))
     implementation(project(":feature:task"))
+    implementation(project(":data:task"))
+    implementation(project(":core:model"))
 }
