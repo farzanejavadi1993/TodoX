@@ -11,15 +11,13 @@ import androidx.compose.ui.unit.dp
 import com.fermer.auth.presentation.AuthViewModel
 @Composable
 fun SignUpScreen(
+    isLoading: Boolean,
+    error: String?,
     onSignUpClick: (email: String, password: String) -> Unit,
-   /* onNavigateToSignIn: () -> Unit,*/
-
+    onNavigateToSignIn: () -> Unit,
 ) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
-
-    val viewModel: AuthViewModel = remember { AuthViewModel() }
-    val uiState by viewModel.uiState.collectAsState()
 
     Box(modifier = Modifier.fillMaxSize()) {
         Column(
@@ -31,8 +29,7 @@ fun SignUpScreen(
         ) {
 
             Text("Create a new account", style = MaterialTheme.typography.headlineMedium)
-
-            Spacer(modifier = Modifier.height(24.dp))
+            Spacer(Modifier.height(24.dp))
 
             OutlinedTextField(
                 value = email,
@@ -41,7 +38,7 @@ fun SignUpScreen(
                 modifier = Modifier.fillMaxWidth()
             )
 
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(Modifier.height(16.dp))
 
             OutlinedTextField(
                 value = password,
@@ -51,36 +48,33 @@ fun SignUpScreen(
                 modifier = Modifier.fillMaxWidth()
             )
 
-            Spacer(modifier = Modifier.height(24.dp))
+            Spacer(Modifier.height(24.dp))
 
             Button(
                 onClick = { onSignUpClick(email, password) },
-                enabled = !uiState.isLoading,
+                enabled = !isLoading,
                 modifier = Modifier.fillMaxWidth()
-            ) {
-                Text("Register")
+            ) { Text("Register") }
+
+            Spacer(Modifier.height(8.dp))
+
+            TextButton(onClick = onNavigateToSignIn) {
+                Text("Already have an account? Sign in")
             }
 
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(Modifier.height(8.dp))
 
-            //TextButton(onClick = onNavigateToSignIn) {
-                Text("Already have an account? Sign in")
-            //}
-
-            Spacer(modifier = Modifier.height(8.dp))
-
-
-            uiState.errorMessage?.let { error ->
+            error?.let {
                 Text(
-                    text = error,
+                    text = it,
                     color = MaterialTheme.colorScheme.error,
                     style = MaterialTheme.typography.bodySmall
                 )
             }
         }
 
-        if (uiState.isLoading) {
-            CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
+        if (isLoading) {
+            CircularProgressIndicator(Modifier.align(Alignment.Center))
         }
     }
 }

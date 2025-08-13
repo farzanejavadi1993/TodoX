@@ -12,6 +12,8 @@ activityCompose = "1.10.1"
 turbine = "1.1.0"
 kotlinx-coroutines-test = "1.8.0"
 connectivity = "1.2.0"
+navigation = "2.7.7"
+hiltNavigationCompose = "1.2.0"
 
 
 
@@ -66,7 +68,8 @@ firebase-firestore-ktx = { group = "com.google.firebase", name = "firebase-fires
 kotlin-serialization = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "serialization" }
 
 androidx-connectivity = { group = "androidx.connectivity", name = "connectivity-manager", version.ref = "connectivity" }
-
+androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation" }
+androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version = "1.9.24" }
