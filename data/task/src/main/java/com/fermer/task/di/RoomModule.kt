@@ -3,6 +3,7 @@ package com.fermer.task.di
 import android.content.Context
 import androidx.room.Room
 import com.fermer.task.firebase.FirebaseTaskDataSource
+import com.fermer.task.local.OfflineOpDao
 import com.fermer.task.local.RoomTaskDataSource
 import com.fermer.task.local.TaskDao
 import com.fermer.task.local.TaskDatabase
@@ -21,12 +22,9 @@ object TaskDataModule {
     @Provides @Singleton
     fun provideFirestore(): FirebaseFirestore = FirebaseFirestore.getInstance()
 
-    @Provides @Singleton
-    fun provideDatabase(@ApplicationContext context: Context): TaskDatabase =
-        Room.databaseBuilder(context, TaskDatabase::class.java, "task_db").build()
 
-    @Provides
-    fun provideTaskDao(db: TaskDatabase): TaskDao = db.taskDao()
+
+
 
     @Provides @Singleton
     fun provideFirebaseTaskDataSource(
@@ -37,4 +35,16 @@ object TaskDataModule {
     fun provideRoomTaskDataSource(
         dao: TaskDao
     ): RoomTaskDataSource = RoomTaskDataSource(dao)
+
+    @Provides @Singleton
+    fun provideTaskDatabase(@ApplicationContext context: Context): TaskDatabase =
+        Room.databaseBuilder(context, TaskDatabase::class.java, "task_db")
+            .fallbackToDestructiveMigration()
+            .build()
+
+    @Provides
+    fun provideTaskDao(db: TaskDatabase): TaskDao = db.taskDao()
+
+    @Provides
+    fun provideOfflineOpDao(db: TaskDatabase): OfflineOpDao = db.offlineOpDao()
 }
