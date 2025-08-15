@@ -9,6 +9,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.fermer.task.presentation.TaskListRoute
 import com.fermer.task.presentation.TaskScreen
 import com.google.firebase.auth.FirebaseAuth
 
@@ -63,7 +64,7 @@ fun AppNavHost(
 
 
         composable(Dest.Tasks.route) {
-            TaskScreen()
+            TaskListRoute()
         }
     }
 }

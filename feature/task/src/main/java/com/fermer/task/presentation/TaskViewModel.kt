@@ -22,7 +22,7 @@ class TaskViewModel @Inject constructor(
 
     fun addTask(title: String) {
         viewModelScope.launch {
-            repository.addTask(TaskModel(title = title))
+            repository.addTask(TaskModel(id = "", title = title, isDone = false))
         }
     }
 
