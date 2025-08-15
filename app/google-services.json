@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "812860580986",
+    "project_id": "todox-92c04",
+    "storage_bucket": "todox-92c04.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:812860580986:android:2c745c08095be94576c7c3",
+        "android_client_info": {
+          "package_name": "com.fermer.todox"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "812860580986-iv06njq7oc5ue4oun5a4c1o5oij2obnk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJi-X8gANUk7SKGRY1BMgq8lBh29yVUuQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "812860580986-iv06njq7oc5ue4oun5a4c1o5oij2obnk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

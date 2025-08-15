@@ -7,15 +7,18 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.fermer.model.TaskModel
 import com.fermer.task.presentation.components.TaskItem
+import kotlin.collections.List
 
 @Composable
 fun TaskListScreen(
-    taskList: List<TaskModel>,
+     taskList: List<TaskModel>,
     onAddTask: (String) -> Unit,
     onRemoveTask: (String) -> Unit
 ) {
+
     var showDialog by remember { mutableStateOf(false) }
     var newTaskTitle by remember { mutableStateOf("") }
 
