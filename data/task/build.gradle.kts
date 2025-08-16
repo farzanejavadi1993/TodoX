@@ -47,6 +47,7 @@ dependencies {
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
 
+
     // Firebase
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.firestore.ktx)
@@ -55,6 +56,10 @@ dependencies {
     implementation(libs.room.runtime)
     implementation(libs.room.ktx)
     kapt(libs.room.compiler)
+
+    implementation(libs.androidx.work)
+    implementation(libs.androidx.hilt.work)
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
