@@ -1,5 +1,6 @@
 package com.fermer.task.di
 
+import com.fermer.task.common.IoDispatcher
 import com.fermer.task.domain.TaskRepository
 import com.fermer.task.local.OfflineOpDao
 import com.fermer.task.local.TaskDao

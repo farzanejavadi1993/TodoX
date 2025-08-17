@@ -34,4 +34,3 @@ include(":feature:search")
 include(":feature:setting")
 
 include(":data:task")
-include(":core:common")
