@@ -6,7 +6,7 @@ import androidx.compose.runtime.getValue
 import androidx.hilt.navigation.compose.hiltViewModel
 
 @Composable
-fun TaskListRoute(viewModel: TaskViewModel = hiltViewModel()) {
+fun TaskListRoute(viewModel: TaskListViewModel = hiltViewModel()) {
 
     val tasks by viewModel.tasks.collectAsState()
 
