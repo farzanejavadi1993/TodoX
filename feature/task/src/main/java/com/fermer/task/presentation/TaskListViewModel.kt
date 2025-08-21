@@ -6,7 +6,6 @@ import com.fermer.domain.GetTasksUseCase
 import com.fermer.model.TaskModel
 import com.fermer.task.domain.AddTaskUseCase
 import com.fermer.task.domain.DeleteTaskUseCase
-import com.fermer.task.domain.TaskRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -35,5 +34,15 @@ class TaskListViewModel @Inject constructor(
             deleteTaskUseCase(id)
         }
 
+    }
+
+
+
+
+
+    fun updateTask(task: TaskModel) {
+        viewModelScope.launch {
+            addTaskUseCase(task)
+        }
     }
 }
