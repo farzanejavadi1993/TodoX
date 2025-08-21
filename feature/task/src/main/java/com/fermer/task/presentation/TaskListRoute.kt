@@ -13,6 +13,7 @@ fun TaskListRoute(viewModel: TaskListViewModel = hiltViewModel()) {
     TaskListScreen(
         taskList = tasks,
         onAddTask = { viewModel.addTask(it) },
-        onRemoveTask = { viewModel.removeTask(it) }
+        onRemoveTask = { viewModel.removeTask(it) },
+        onToggleCheck = { viewModel.updateTask(it) }
     )
 }

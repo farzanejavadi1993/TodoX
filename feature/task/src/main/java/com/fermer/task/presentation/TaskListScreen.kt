@@ -19,20 +19,14 @@ import kotlin.collections.List
 fun TaskListScreen(
      taskList: List<TaskModel>,
     onAddTask: (String) -> Unit,
-    onRemoveTask: (String) -> Unit
+    onRemoveTask: (String) -> Unit,
+     onToggleCheck: (TaskModel) -> Unit
 ) {
 
     var showDialog by remember { mutableStateOf(false) }
     var newTaskTitle by remember { mutableStateOf("") }
 
-   /* val context = LocalContext.current
-    val workManager = remember { WorkManager.getInstance(context) }
-    LaunchedEffect(connectivityStatus) {
-        if (connectivityStatus == ConnectivityObserver.Status.Available) {
-            SyncScheduler.enqueue(workManager)
-        }
-    }
-*/
+
 
     Scaffold(
         floatingActionButton = {
@@ -53,7 +47,8 @@ fun TaskListScreen(
                     items(taskList, key = { it.id }) { task ->
                         TaskItem(
                             task = task,
-                            onDelete = onRemoveTask
+                            onDelete = onRemoveTask,
+                            onToggleCheck = onToggleCheck
                         )
                     }
                 }
