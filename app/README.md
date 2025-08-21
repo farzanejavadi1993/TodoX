@@ -38,4 +38,19 @@ This project is structured with modularization and follows **MVI pattern**.
 
 ---
 
+## 🚀 Getting Started
+
+To run this project locally:
+
+1. Clone the repo
+2. Open in Android Studio
+3. Connect Firebase by adding your `google-services.json` to `app/`
+4. Sync Gradle and Run
+
+---
+
+## 📬 Contact
+
+For any questions or suggestions, feel free to reach out: farzane.javadi1993@gmail.com
+
 
