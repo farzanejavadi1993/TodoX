@@ -88,4 +88,8 @@ class TaskRepositoryImpl(
             )
         }
     }
+
+    override suspend fun updateTask(task: TaskModel) {
+        taskDao.update(task.toEntity())
+    }
 }
