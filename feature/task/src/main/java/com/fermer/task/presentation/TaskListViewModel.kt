@@ -2,10 +2,11 @@ package com.fermer.task.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.fermer.domain.GetTasksUseCase
 import com.fermer.model.TaskModel
 import com.fermer.task.domain.AddTaskUseCase
 import com.fermer.task.domain.DeleteTaskUseCase
+import com.fermer.task.domain.GetTasksUseCase
+import com.fermer.task.domain.UpdateTaskUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -17,7 +18,8 @@ import javax.inject.Inject
 class TaskListViewModel @Inject constructor(
     private val getTasksUseCase: GetTasksUseCase,
     private val addTaskUseCase: AddTaskUseCase,
-    private val deleteTaskUseCase: DeleteTaskUseCase
+    private val deleteTaskUseCase: DeleteTaskUseCase,
+    private val updateTaskUseCase: UpdateTaskUseCase
 ) : ViewModel() {
 
     val tasks: StateFlow<List<TaskModel>> = getTasksUseCase()
@@ -37,12 +39,9 @@ class TaskListViewModel @Inject constructor(
     }
 
 
-
-
-
     fun updateTask(task: TaskModel) {
         viewModelScope.launch {
-            addTaskUseCase(task)
+            updateTaskUseCase(task)
         }
     }
 }

@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Update
 import com.fermer.model.TaskModel
 import kotlinx.coroutines.flow.Flow
 
@@ -18,4 +19,7 @@ interface TaskDao {
 
     @Query("DELETE FROM tasks WHERE id = :taskId")
     suspend fun delete(taskId: String)
+
+    @Update
+    suspend fun update(task: TaskEntity)
 }

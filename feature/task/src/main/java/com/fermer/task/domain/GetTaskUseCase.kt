@@ -1,7 +1,6 @@
-package com.fermer.domain
+package com.fermer.task.domain
 
 import com.fermer.model.TaskModel
-import com.fermer.task.domain.TaskRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
