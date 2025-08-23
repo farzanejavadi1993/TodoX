@@ -41,7 +41,7 @@ dependencies {
     implementation(libs.material)
 
     implementation(project(":core:model"))
-    implementation(project(":feature:task"))
+    implementation(project(":core:domain"))
 
     // Hilt
     implementation(libs.hilt.android)

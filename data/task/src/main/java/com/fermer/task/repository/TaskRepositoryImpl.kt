@@ -1,8 +1,8 @@
 package com.fermer.task.repository
 
 
+import com.fermer.domain.task.TaskRepository
 import com.fermer.model.TaskModel
-import com.fermer.task.domain.TaskRepository
 import com.fermer.task.firebase.FirebaseTaskDataSource
 import com.fermer.task.local.OfflineOpDao
 import com.fermer.task.local.OfflineOpEntity

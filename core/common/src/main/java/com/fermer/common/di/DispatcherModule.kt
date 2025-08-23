@@ -1,7 +1,7 @@
-package com.fermer.task.di
+package com.fermer.common.di
 
 
-import com.fermer.task.common.IoDispatcher
+import com.fermer.common.IoDispatcher
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

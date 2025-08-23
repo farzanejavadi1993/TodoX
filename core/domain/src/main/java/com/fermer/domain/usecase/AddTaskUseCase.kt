@@ -1,5 +1,6 @@
-package com.fermer.task.domain
+package com.fermer.domain.usecase
 
+import com.fermer.domain.task.TaskRepository
 import com.fermer.model.TaskModel
 import javax.inject.Inject
 

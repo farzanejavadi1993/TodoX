@@ -1,4 +1,4 @@
-package com.fermer.task.domain
+package com.fermer.domain.task
 
 import com.fermer.model.TaskModel
 import kotlinx.coroutines.flow.Flow

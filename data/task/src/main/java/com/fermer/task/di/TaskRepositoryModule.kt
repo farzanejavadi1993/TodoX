@@ -1,18 +1,16 @@
 package com.fermer.task.di
 
-import com.fermer.task.common.IoDispatcher
-import com.fermer.task.domain.TaskRepository
+import com.fermer.common.IoDispatcher
+import com.fermer.domain.task.TaskRepository
 import com.fermer.task.local.OfflineOpDao
 import com.fermer.task.local.TaskDao
 import com.fermer.task.repository.TaskRepositoryImpl
 import com.google.firebase.firestore.FirebaseFirestore
-import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.CoroutineDispatcher
-import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)

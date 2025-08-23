@@ -6,13 +6,9 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.work.WorkManager
 import com.fermer.model.TaskModel
 import com.fermer.task.presentation.components.TaskItem
-import com.fermer.task.sync.SyncScheduler
 import kotlin.collections.List
 
 @Composable
