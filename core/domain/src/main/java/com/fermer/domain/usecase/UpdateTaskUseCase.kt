@@ -1,7 +1,7 @@
-package com.fermer.task.domain
+package com.fermer.domain.usecase
 
+import com.fermer.domain.task.TaskRepository
 import com.fermer.model.TaskModel
-import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class UpdateTaskUseCase @Inject constructor(

@@ -2,11 +2,11 @@ package com.fermer.task.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.fermer.domain.usecase.AddTaskUseCase
+import com.fermer.domain.usecase.DeleteTaskUseCase
+import com.fermer.domain.usecase.GetTasksUseCase
+import com.fermer.domain.usecase.UpdateTaskUseCase
 import com.fermer.model.TaskModel
-import com.fermer.task.domain.AddTaskUseCase
-import com.fermer.task.domain.DeleteTaskUseCase
-import com.fermer.task.domain.GetTasksUseCase
-import com.fermer.task.domain.UpdateTaskUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow

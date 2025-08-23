@@ -44,7 +44,7 @@ dependencies {
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
 
-    implementation(project(":feature:task"))
+    //implementation(project(":feature:task"))
     implementation(project(":core:model"))
 
     testImplementation(libs.junit)
