@@ -67,6 +67,6 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     implementation(project(":core:model"))
-   // implementation(project(":core:domain"))
+    implementation(project(":core:domain"))
     implementation(project(":data:task"))
 }

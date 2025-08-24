@@ -22,10 +22,6 @@ object TaskDataModule {
     @Provides @Singleton
     fun provideFirestore(): FirebaseFirestore = FirebaseFirestore.getInstance()
 
-
-
-
-
     @Provides @Singleton
     fun provideFirebaseTaskDataSource(
         firestore: FirebaseFirestore

@@ -16,10 +16,10 @@ import javax.inject.Inject
 
 @HiltViewModel
 class TaskListViewModel @Inject constructor(
-    private val getTasksUseCase: GetTasksUseCase,
     private val addTaskUseCase: AddTaskUseCase,
     private val deleteTaskUseCase: DeleteTaskUseCase,
-    private val updateTaskUseCase: UpdateTaskUseCase
+    private val updateTaskUseCase: UpdateTaskUseCase,
+    private val getTasksUseCase: GetTasksUseCase
 ) : ViewModel() {
 
     val tasks: StateFlow<List<TaskModel>> = getTasksUseCase()
@@ -37,7 +37,6 @@ class TaskListViewModel @Inject constructor(
         }
 
     }
-
 
     fun updateTask(task: TaskModel) {
         viewModelScope.launch {
