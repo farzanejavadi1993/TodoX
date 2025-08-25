@@ -49,6 +49,11 @@ To run this project locally:
 
 ---
 
+## Task Data Module
+Contains data sources and repository implementation for task feature.
+
+
+
 ## 📬 Contact
 
 For any questions or suggestions, feel free to reach out: farzane.javadi1993@gmail.com

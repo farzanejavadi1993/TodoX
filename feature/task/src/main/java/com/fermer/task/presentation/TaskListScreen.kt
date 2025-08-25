@@ -13,10 +13,10 @@ import kotlin.collections.List
 
 @Composable
 fun TaskListScreen(
-     taskList: List<TaskModel>,
+    taskList: List<TaskModel>,
     onAddTask: (String) -> Unit,
     onRemoveTask: (String) -> Unit,
-     onToggleCheck: (TaskModel) -> Unit
+    onToggleCheck: (TaskModel) -> Unit
 ) {
 
     var showDialog by remember { mutableStateOf(false) }
