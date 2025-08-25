@@ -14,7 +14,7 @@ import kotlinx.coroutines.CoroutineDispatcher
 
 @Module
 @InstallIn(SingletonComponent::class)
-abstract class TaskRepositoryModule {
+object TaskRepositoryModule {
 
     @Provides
     fun provideTaskRepository(

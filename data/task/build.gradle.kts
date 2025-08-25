@@ -42,10 +42,14 @@ dependencies {
 
     implementation(project(":core:model"))
     implementation(project(":core:domain"))
+    implementation(project(":core:common"))
 
     // Hilt
     implementation(libs.hilt.android)
+    implementation(libs.androidx.work)
+    implementation(libs.androidx.hilt.work)
     kapt(libs.hilt.android.compiler)
+
 
 
     // Firebase
@@ -57,8 +61,7 @@ dependencies {
     implementation(libs.room.ktx)
     kapt(libs.room.compiler)
 
-    implementation(libs.androidx.work)
-    implementation(libs.androidx.hilt.work)
+
 
 
     testImplementation(libs.junit)
