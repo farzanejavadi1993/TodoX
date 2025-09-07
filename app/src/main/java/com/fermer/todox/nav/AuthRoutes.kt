@@ -18,7 +18,8 @@ fun SignInRoute(
     val state by viewModel.uiState.collectAsState()
 
     LaunchedEffect(state.isSuccess) {
-        if (state.isSuccess) onAuthSuccess()
+        if (state.isSuccess)
+            onAuthSuccess()
     }
 
     SignInScreen(

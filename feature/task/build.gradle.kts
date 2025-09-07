@@ -51,16 +51,19 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.lifecycle.viewmodel)
     implementation(libs.androidx.foundation.layout)
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.android.compiler)
-    implementation(libs.hilt.navigation.compose)
+
+
 
     testImplementation(libs.kotlin.test)
     testImplementation(libs.coroutines.test)
     testImplementation(libs.turbine)
-
-    implementation(libs.androidx.work)
+    
+    // Hilt
+    implementation(libs.hilt.android)
     implementation(libs.androidx.hilt.work)
+    implementation(libs.androidx.work)
+    kapt(libs.hilt.android.compiler)
+    implementation(libs.hilt.navigation.compose)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

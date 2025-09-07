@@ -1,15 +1,19 @@
 package com.fermer.todox.nav
 
+import android.content.Context
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.work.WorkManager
 import com.fermer.task.presentation.TaskListRoute
+import com.fermer.task.sync.SyncScheduler
 import com.google.firebase.auth.FirebaseAuth
 
 @Composable
@@ -26,7 +30,8 @@ fun AppNavHost(
                     if (isLoggedIn)
                         Dest.Tasks.route
                     else
-                        Dest.SignIn.route)
+                        Dest.SignIn.route
+                )
                 {
                     popUpTo(Dest.Splash.route) { inclusive = true }
                     launchSingleTop = true
@@ -71,5 +76,6 @@ fun AppNavHost(
 @Composable
 private fun BoxedLoading() {
     Scaffold { padding ->
-        CircularProgressIndicator(modifier = androidx.compose.ui.Modifier.padding(padding)) }
+        CircularProgressIndicator(modifier = androidx.compose.ui.Modifier.padding(padding))
+    }
 }
