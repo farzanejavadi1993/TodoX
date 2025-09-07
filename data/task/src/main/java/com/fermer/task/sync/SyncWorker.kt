@@ -18,7 +18,7 @@ class SyncWorker @AssistedInject constructor(
     @Assisted appContext: Context,
     @Assisted params: WorkerParameters,
     private val offlineOpDao: OfflineOpDao,
-    private val firestore: FirebaseFirestore,
+    private val firestore: FirebaseFirestore
 ) : CoroutineWorker(appContext, params) {
 
     override suspend fun doWork(): Result {
