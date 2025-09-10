@@ -10,13 +10,10 @@ import kotlinx.coroutines.launch
 
 class AuthViewModel : ViewModel() {
 
-
     private val _uiState = MutableStateFlow(AuthUiState())
     val uiState: StateFlow<AuthUiState> = _uiState
 
     private val firebaseAuth: FirebaseAuth = FirebaseAuth.getInstance()
-
-
 
     fun signUp(email: String, password: String) {
         _uiState.value = _uiState.value.copy(isLoading = true)

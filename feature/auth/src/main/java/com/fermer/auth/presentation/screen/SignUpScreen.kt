@@ -1,6 +1,5 @@
 package com.fermer.auth.presentation.screen
 
-
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -8,7 +7,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
-import com.fermer.auth.presentation.AuthViewModel
 @Composable
 fun SignUpScreen(
     isLoading: Boolean,

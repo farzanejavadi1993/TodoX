@@ -21,15 +21,10 @@ dependencyResolutionManagement {
 
 rootProject.name = "TodoX"
 include(":app")
-include(":core:designsystem")
-include(":core:ui")
-include(":core:data")
 include(":core:domain")
 include(":core:model")
 include(":feature:auth")
-include(":feature:tasklist")
 include(":feature:task")
-include(":feature:project")
 include(":feature:search")
 include(":feature:setting")
 

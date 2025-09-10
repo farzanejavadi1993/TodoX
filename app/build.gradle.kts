@@ -76,7 +76,7 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    implementation(project(":feature:tasklist"))
+
     implementation(project(":feature:auth"))
     implementation(project(":feature:task"))
     implementation(project(":data:task"))
