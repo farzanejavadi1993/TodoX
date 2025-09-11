@@ -5,9 +5,9 @@ import android.content.Context
 import androidx.hilt.work.HiltWorker
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
-import com.fermer.task.local.OfflineOpDao
-import com.fermer.task.local.OpStatus
-import com.fermer.task.local.OpType
+import com.fermer.task.local.dao.OfflineOpDao
+import com.fermer.task.local.entity.OpStatus
+import com.fermer.task.local.entity.OpType
 import com.google.firebase.firestore.FirebaseFirestore
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject

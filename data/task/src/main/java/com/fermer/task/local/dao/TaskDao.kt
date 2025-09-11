@@ -1,11 +1,11 @@
-package com.fermer.task.local
+package com.fermer.task.local.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
-import com.fermer.model.TaskModel
+import com.fermer.task.local.entity.TaskEntity
 import kotlinx.coroutines.flow.Flow
 
 

@@ -1,6 +1,8 @@
-package com.fermer.task.local
+package com.fermer.task.local.db
 
 import com.fermer.model.TaskModel
+import com.fermer.task.local.entity.TaskEntity
+import java.util.UUID
 
 
 internal fun TaskEntity.toDomain() = TaskModel(
@@ -10,7 +12,7 @@ internal fun TaskEntity.toDomain() = TaskModel(
 )
 
 internal fun TaskModel.toEntity() = TaskEntity(
-    id = if (id.isBlank()) java.util.UUID.randomUUID().toString() else id,
+    id = if (id.isBlank()) UUID.randomUUID().toString() else id,
     title = title,
     isDone = isDone
 )

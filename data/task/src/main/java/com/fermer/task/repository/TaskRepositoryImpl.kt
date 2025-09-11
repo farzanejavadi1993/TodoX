@@ -3,24 +3,19 @@ package com.fermer.task.repository
 
 import com.fermer.domain.task.TaskRepository
 import com.fermer.model.TaskModel
-import com.fermer.task.firebase.FirebaseTaskDataSource
-import com.fermer.task.local.OfflineOpDao
-import com.fermer.task.local.OfflineOpEntity
-import com.fermer.task.local.OpStatus
-import com.fermer.task.local.OpType
-import com.fermer.task.local.RoomTaskDataSource
-import com.fermer.task.local.TaskDao
-import com.fermer.task.local.TaskEntity
-import com.fermer.task.local.toDomain
-import com.fermer.task.local.toEntity
+import com.fermer.task.local.dao.OfflineOpDao
+import com.fermer.task.local.entity.OfflineOpEntity
+import com.fermer.task.local.entity.OpStatus
+import com.fermer.task.local.entity.OpType
+import com.fermer.task.local.dao.TaskDao
+import com.fermer.task.local.db.toDomain
+import com.fermer.task.local.db.toEntity
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
-import javax.inject.Inject
-
 
 
 class TaskRepositoryImpl(

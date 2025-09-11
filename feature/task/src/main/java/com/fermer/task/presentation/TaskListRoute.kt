@@ -9,6 +9,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.work.WorkManager
 import com.fermer.task.sync.SyncScheduler
+/*
 
 @Composable
 fun TaskListRoute(viewModel: TaskListViewModel = hiltViewModel()) {
@@ -30,4 +31,18 @@ fun TaskListRoute(viewModel: TaskListViewModel = hiltViewModel()) {
 
 fun scheduleSync(context: Context) {
     SyncScheduler.enqueue(WorkManager.getInstance(context))
+}
+*/
+@Composable
+fun TaskListRoute(
+    viewModel: TaskListViewModel = hiltViewModel()
+) {
+    val state by viewModel.uiState.collectAsState()
+
+    TaskListScreen(
+        taskList = state.tasks,
+        onAddTask = { viewModel.sendEvent(TaskListEvent.AddTask(it)) },
+        onRemoveTask = { viewModel.sendEvent(TaskListEvent.RemoveTask(it)) },
+        onToggleCheck = { viewModel.sendEvent(TaskListEvent.ToggleTask(it)) }
+    )
 }
