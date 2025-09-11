@@ -1,6 +1,8 @@
 package com.fermer.task.local
 
 import com.fermer.model.TaskModel
+import com.fermer.task.local.dao.TaskDao
+import com.fermer.task.local.entity.TaskEntity
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject

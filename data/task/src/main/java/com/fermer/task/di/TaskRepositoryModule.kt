@@ -2,8 +2,8 @@ package com.fermer.task.di
 
 import com.fermer.common.IoDispatcher
 import com.fermer.domain.task.TaskRepository
-import com.fermer.task.local.OfflineOpDao
-import com.fermer.task.local.TaskDao
+import com.fermer.task.local.dao.OfflineOpDao
+import com.fermer.task.local.dao.TaskDao
 import com.fermer.task.repository.TaskRepositoryImpl
 import com.google.firebase.firestore.FirebaseFirestore
 import dagger.Module

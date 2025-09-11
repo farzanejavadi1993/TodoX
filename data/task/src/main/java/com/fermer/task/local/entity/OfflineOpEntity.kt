@@ -1,4 +1,4 @@
-package com.fermer.task.local
+package com.fermer.task.local.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

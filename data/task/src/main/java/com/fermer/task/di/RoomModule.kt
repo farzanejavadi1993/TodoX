@@ -3,10 +3,10 @@ package com.fermer.task.di
 import android.content.Context
 import androidx.room.Room
 import com.fermer.task.firebase.FirebaseTaskDataSource
-import com.fermer.task.local.OfflineOpDao
+import com.fermer.task.local.dao.OfflineOpDao
 import com.fermer.task.local.RoomTaskDataSource
-import com.fermer.task.local.TaskDao
-import com.fermer.task.local.TaskDatabase
+import com.fermer.task.local.dao.TaskDao
+import com.fermer.task.local.db.TaskDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 import dagger.Module
 import dagger.Provides
