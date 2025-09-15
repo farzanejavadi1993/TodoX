@@ -10,7 +10,7 @@ class TaskListReducer : Reducer<TaskListState, TaskListEvent> {
     ): TaskListState {
         return when (event) {
             is TaskListEvent.LoadTasks -> currentState.copy(isLoading = true)
-            else -> currentState // تغییر اصلی در ViewModel اعمال میشه
+            else -> currentState
         }
     }
 }

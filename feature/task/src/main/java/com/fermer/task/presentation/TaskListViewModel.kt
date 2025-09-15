@@ -11,6 +11,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
+import java.util.UUID
 import javax.inject.Inject
 
 @HiltViewModel
@@ -26,6 +27,8 @@ class TaskListViewModel @Inject constructor(
     init {
         getTasks()
     }
+
+
 
     override fun handleEvent(event: TaskListEvent) {
         when (event) {
@@ -45,9 +48,11 @@ class TaskListViewModel @Inject constructor(
 
     private fun addTask(title: String) {
         viewModelScope.launch {
-            addTaskUseCase(TaskModel(id = "", title = title, isDone = false))
+            addTaskUseCase(TaskModel(id = UUID.randomUUID().toString(), title = title, isDone = false))
+            getTasks()
         }
     }
+
 
     private fun removeTask(id: String) {
         viewModelScope.launch {
