@@ -1,19 +1,15 @@
 package com.fermer.todox.nav
 
-import android.content.Context
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import androidx.work.WorkManager
 import com.fermer.task.presentation.TaskListRoute
-import com.fermer.task.sync.SyncScheduler
 import com.google.firebase.auth.FirebaseAuth
 
 @Composable
@@ -25,6 +21,7 @@ fun AppNavHost(
         composable(Dest.Splash.route) {
 
             val isLoggedIn = FirebaseAuth.getInstance().currentUser != null
+
             LaunchedEffect(isLoggedIn) {
                 navController.navigate(
                     if (isLoggedIn)

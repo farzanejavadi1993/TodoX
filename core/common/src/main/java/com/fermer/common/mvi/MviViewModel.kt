@@ -4,11 +4,11 @@ import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
-
 abstract class MviViewModel<S : UiState, E : UiEvent, F : UiEffect>(
     initialState: S,
     private val reducer: Reducer<S, E>
 ) : ViewModel() {
+
     private val _uiState = MutableStateFlow(initialState)
     val uiState = _uiState.asStateFlow()
 
@@ -23,4 +23,6 @@ abstract class MviViewModel<S : UiState, E : UiEvent, F : UiEffect>(
     }
 
     protected abstract fun handleEvent(event: E)
+
+
 }
