@@ -25,8 +25,10 @@ include(":core:domain")
 include(":core:model")
 include(":feature:auth")
 include(":feature:task")
+include(":feature:home")
 include(":feature:search")
 include(":feature:setting")
 
 include(":data:task")
 include(":core:common")
+

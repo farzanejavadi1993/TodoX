@@ -79,6 +79,7 @@ dependencies {
 
     implementation(project(":feature:auth"))
     implementation(project(":feature:task"))
+    implementation(project(":feature:home"))
     implementation(project(":data:task"))
     implementation(project(":core:model"))
 }

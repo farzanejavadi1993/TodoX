@@ -1,15 +1,21 @@
 package com.fermer.task.presentation
 
+import androidx.compose.material3.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.fermer.model.TaskModel
 import com.fermer.task.presentation.components.TaskItem
+import java.time.LocalDate
+
 import kotlin.collections.List
+/*
 
 @Composable
 fun TaskListScreen(
@@ -84,3 +90,41 @@ fun TaskListScreen(
     }
 }
 
+*/
+@Composable
+fun TaskListScreen(
+    title: String = "Tasks",
+    taskList: List<TaskModel>,
+    onAddTask: (String) -> Unit,
+    onRemoveTask: (String) -> Unit,
+    onToggleCheck: (TaskModel) -> Unit
+) {
+    Column {
+        Text(
+            text = title,
+            style = MaterialTheme.typography.headlineSmall,
+            modifier = Modifier.padding(16.dp)
+        )
+
+        LazyColumn {
+            items(taskList) { task ->
+                TaskItem(
+                    task = task,
+                    onCheckedChange = { onToggleCheck(task.copy(isDone = task.isDone)) },
+                    onRemove = { onRemoveTask(task.id) },
+
+
+                )
+            }
+        }
+
+        FloatingActionButton(
+            onClick = { onAddTask("New Task") },
+            modifier = Modifier
+                .align(Alignment.End)
+                .padding(16.dp)
+        ) {
+            Icon(Icons.Default.Add, contentDescription = "Add Task")
+        }
+    }
+}

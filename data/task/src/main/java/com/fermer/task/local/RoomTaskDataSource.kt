@@ -13,12 +13,12 @@ class RoomTaskDataSource @Inject constructor(
 
     fun getTasks(): Flow<List<TaskModel>> {
         return dao.getTasks().map { list ->
-            list.map { TaskModel(it.id, it.title, it.isDone) }
+            list.map { TaskModel(it.id, it.title, it.isDone, it.dueDate, it.priority) }
         }
     }
 
     suspend fun addTask(task: TaskModel) {
-        dao.insert(TaskEntity(task.id, task.title, task.isDone))
+        dao.insert(TaskEntity(task.id, task.title, task.isDone, task.dueDate, task.priority))
     }
 
     suspend fun removeTask(id: String) {
