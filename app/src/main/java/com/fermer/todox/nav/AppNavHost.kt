@@ -9,6 +9,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.fermer.home.presentation.HomeScreen
 import com.fermer.task.presentation.TaskListRoute
 import com.google.firebase.auth.FirebaseAuth
 
@@ -25,7 +26,7 @@ fun AppNavHost(
             LaunchedEffect(isLoggedIn) {
                 navController.navigate(
                     if (isLoggedIn)
-                        Dest.Tasks.route
+                        Dest.Home.route
                     else
                         Dest.SignIn.route
                 )
@@ -43,7 +44,7 @@ fun AppNavHost(
             SignInRoute(
                 onNavigateToSignUp = { navController.navigate(Dest.SignUp.route) },
                 onAuthSuccess = {
-                    navController.navigate(Dest.Tasks.route) {
+                    navController.navigate(Dest.Home.route) {
                         popUpTo(Dest.SignIn.route) { inclusive = true }
                         launchSingleTop = true
                     }
@@ -55,7 +56,7 @@ fun AppNavHost(
             SignUpRoute(
                 onNavigateToSignIn = { navController.popBackStack() },
                 onAuthSuccess = {
-                    navController.navigate(Dest.Tasks.route) {
+                    navController.navigate(Dest.Home.route) {
                         popUpTo(Dest.SignUp.route) { inclusive = true }
                         launchSingleTop = true
                     }
@@ -64,8 +65,8 @@ fun AppNavHost(
         }
 
 
-        composable(Dest.Tasks.route) {
-            TaskListRoute()
+        composable(Dest.Home.route) {
+            HomeScreen()
         }
     }
 }

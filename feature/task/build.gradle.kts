@@ -52,8 +52,6 @@ dependencies {
     implementation(libs.lifecycle.viewmodel)
     implementation(libs.androidx.foundation.layout)
 
-
-
     testImplementation(libs.kotlin.test)
     testImplementation(libs.coroutines.test)
     testImplementation(libs.turbine)

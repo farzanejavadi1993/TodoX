@@ -7,6 +7,7 @@ import com.fermer.domain.usecase.AddTaskUseCase
 import com.fermer.domain.usecase.DeleteTaskUseCase
 import com.fermer.domain.usecase.GetTasksUseCase
 import com.fermer.domain.usecase.UpdateTaskUseCase
+import com.fermer.model.Priority
 import com.fermer.model.TaskModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
@@ -15,6 +16,7 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import java.time.LocalDate
 import java.util.UUID
 import javax.inject.Inject
 
@@ -65,7 +67,9 @@ class TaskListViewModel @Inject constructor(
                 TaskModel(
                     id = UUID.randomUUID().toString(),
                     title = title,
-                    isDone = false
+                    isDone = false,
+                    dueDate = LocalDate.now(),
+                    priority = Priority.LOW
                 )
             )
 
