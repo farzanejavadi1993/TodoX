@@ -125,8 +125,9 @@ fun TaskListScreen(
                 items(taskList) { task ->
                     TaskItem(
                         task = task,
-                        onCheckedChange = { onToggleCheck(task.copy(isDone = task.isDone)) },
+                        onCheckedChange = { onToggleCheck(task.copy(isDone = !task.isDone)) },
                         onRemove = { onRemoveTask(task.id) },
+
 
 
                         )
