@@ -15,6 +15,7 @@ import com.fermer.task.presentation.components.TaskItem
 import java.time.LocalDate
 
 import kotlin.collections.List
+
 /*
 
 @Composable
@@ -99,32 +100,71 @@ fun TaskListScreen(
     onRemoveTask: (String) -> Unit,
     onToggleCheck: (TaskModel) -> Unit
 ) {
-    Column {
-        Text(
-            text = title,
-            style = MaterialTheme.typography.headlineSmall,
-            modifier = Modifier.padding(16.dp)
-        )
 
-        LazyColumn {
-            items(taskList) { task ->
-                TaskItem(
-                    task = task,
-                    onCheckedChange = { onToggleCheck(task.copy(isDone = task.isDone)) },
-                    onRemove = { onRemoveTask(task.id) },
+    var showDialog by remember { mutableStateOf(false) }
+    var newTaskTitle by remember { mutableStateOf("") }
+
+    Scaffold(
+        floatingActionButton = {
+            FloatingActionButton(onClick = { showDialog = true }) {
+                Text("+")
+            }
+        }
+    ) { paddingValues ->
+        Column(
+            modifier = Modifier
+                .padding(paddingValues)
+        ) {
+            Text(
+                text = title,
+                style = MaterialTheme.typography.headlineSmall,
+                modifier = Modifier.padding(16.dp)
+            )
+
+            LazyColumn {
+                items(taskList) { task ->
+                    TaskItem(
+                        task = task,
+                        onCheckedChange = { onToggleCheck(task.copy(isDone = task.isDone)) },
+                        onRemove = { onRemoveTask(task.id) },
 
 
+                        )
+                }
+            }
+
+
+            if (showDialog) {
+                AlertDialog(
+                    onDismissRequest = { showDialog = false },
+                    confirmButton = {
+                        Button(onClick = {
+                            onAddTask(newTaskTitle)
+                            newTaskTitle = ""
+                            showDialog = false
+                        }) {
+                            Text("Add")
+                        }
+                    },
+                    dismissButton = {
+                        OutlinedButton(onClick = {
+                            showDialog = false
+                        }) {
+                            Text("Cancel")
+                        }
+                    },
+                    title = { Text("Add New Task") },
+                    text = {
+                        OutlinedTextField(
+                            value = newTaskTitle,
+                            onValueChange = { newTaskTitle = it },
+                            label = { Text("Task Title") },
+                            singleLine = true
+                        )
+                    }
                 )
             }
         }
 
-        FloatingActionButton(
-            onClick = { onAddTask("New Task") },
-            modifier = Modifier
-                .align(Alignment.End)
-                .padding(16.dp)
-        ) {
-            Icon(Icons.Default.Add, contentDescription = "Add Task")
-        }
     }
 }
