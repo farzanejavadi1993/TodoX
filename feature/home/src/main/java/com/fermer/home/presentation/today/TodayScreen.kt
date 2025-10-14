@@ -16,6 +16,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.fermer.common.util.isToday
+import com.fermer.model.Priority
 import com.fermer.task.presentation.TaskListEvent
 import com.fermer.task.presentation.TaskListScreen
 import com.fermer.task.presentation.TaskListViewModel
@@ -33,7 +34,8 @@ fun TodayScreen(
         taskList = filteredTasks,
         onAddTask = { viewModel.sendEvent(TaskListEvent.AddTask(it)) },
         onRemoveTask = { viewModel.sendEvent(TaskListEvent.RemoveTask(it)) },
-        onToggleCheck = { viewModel.sendEvent(TaskListEvent.ToggleTask(it)) }
+        onToggleCheck = { viewModel.sendEvent(TaskListEvent.ToggleTask(it)) },
+        onPriorityClick = { viewModel.sendEvent(TaskListEvent.ToggleTask(it)) }
     )
 }
 

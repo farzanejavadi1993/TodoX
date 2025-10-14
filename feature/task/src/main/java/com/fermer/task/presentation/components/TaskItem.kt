@@ -1,8 +1,10 @@
 package com.fermer.task.presentation.components
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Face
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -10,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.fermer.common.util.toFormattedDate
 import com.fermer.model.Priority
 import com.fermer.model.TaskModel
@@ -56,8 +59,11 @@ import com.fermer.model.TaskModel
 fun TaskItem(
     task: TaskModel,
     onCheckedChange: (Boolean) -> Unit,
-    onRemove: () -> Unit
+    onRemove: () -> Unit,
+    onPriorityClick: (TaskModel) -> Unit
 ) {
+
+
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -78,11 +84,19 @@ fun TaskItem(
                     Priority.HIGH -> Color.Red
                     Priority.MEDIUM -> Color.Yellow
                     Priority.LOW -> Color.Green
+                },
+                modifier = Modifier.clickable {
+                    onPriorityClick(task)
                 }
             )
+
+
         }
         IconButton(onClick = onRemove) {
             Icon(Icons.Default.Delete, contentDescription = "Remove Task")
         }
     }
+
+
+
 }

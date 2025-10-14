@@ -23,6 +23,7 @@ fun UpcomingScreen(
         taskList = filteredTasks,
         onAddTask = { viewModel.sendEvent(TaskListEvent.AddTask(it)) },
         onRemoveTask = { viewModel.sendEvent(TaskListEvent.RemoveTask(it)) },
-        onToggleCheck = { viewModel.sendEvent(TaskListEvent.ToggleTask(it)) }
+        onToggleCheck = { viewModel.sendEvent(TaskListEvent.ToggleTask(it)) },
+        onPriorityClick = { viewModel.sendEvent(TaskListEvent.ToggleTask(it)) }
     )
 }

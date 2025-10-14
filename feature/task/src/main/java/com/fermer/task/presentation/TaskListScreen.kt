@@ -10,6 +10,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.fermer.model.Priority
 import com.fermer.model.TaskModel
 import com.fermer.task.presentation.components.TaskItem
 import java.time.LocalDate
@@ -98,7 +99,8 @@ fun TaskListScreen(
     taskList: List<TaskModel>,
     onAddTask: (String) -> Unit,
     onRemoveTask: (String) -> Unit,
-    onToggleCheck: (TaskModel) -> Unit
+    onToggleCheck: (TaskModel) -> Unit,
+    onPriorityClick: (TaskModel) -> Unit
 ) {
 
     var showDialog by remember { mutableStateOf(false) }
@@ -122,14 +124,21 @@ fun TaskListScreen(
             )
 
             LazyColumn {
+
                 items(taskList) { task ->
+
+                    val nextPriority = when (task.priority) {
+                        Priority.LOW -> Priority.MEDIUM
+                        Priority.MEDIUM -> Priority.HIGH
+                        Priority.HIGH -> Priority.LOW
+                    }
+                    val updatedTask = task.copy(priority = nextPriority)
+
                     TaskItem(
                         task = task,
                         onCheckedChange = { onToggleCheck(task.copy(isDone = !task.isDone)) },
                         onRemove = { onRemoveTask(task.id) },
-
-
-
+                        onPriorityClick={ onToggleCheck(updatedTask) }
                         )
                 }
             }

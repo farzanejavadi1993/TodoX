@@ -14,6 +14,7 @@ sealed class TaskListEvent : UiEvent {
     data class AddTask(val title: String) : TaskListEvent()
     data class RemoveTask(val id: String) : TaskListEvent()
     data class ToggleTask(val task: TaskModel) : TaskListEvent()
+
     object LoadTasks : TaskListEvent()
 }
 
