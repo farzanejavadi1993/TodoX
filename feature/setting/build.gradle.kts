@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.fermer.setting"
-    compileSdk = 34
+    compileSdk = 36
 
     defaultConfig {
         minSdk = 24
