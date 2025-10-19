@@ -1,0 +1,31 @@
+name: Android Release CI
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout source code
+        uses: actions/checkout@v3
+
+      - name: ☕ Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: 📦 Give Gradle permission
+        run: chmod +x ./gradlew
+
+      - name: 🛠️ Build Release APK
+        run: ./gradlew assembleRelease
+
+      - name: 📤 Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-apk
+          path: app/build/outputs/apk/release/app-release.apk

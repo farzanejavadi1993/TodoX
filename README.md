@@ -6,43 +6,45 @@ TodoX is a **modular Android To-Do application** built with modern Android devel
 
 ## 🚀 Features
 
-- 📋 Create, update, and delete tasks
-- 📴 Works fully offline – with **automatic sync** when internet is available
-- 🔄 Powered by **WorkManager** for background sync
-- ☁️ Firebase Firestore integration
-- ✨ Modern architecture with Clean Architecture principles
-- ✅ MVVM + MVI hybrid pattern
-- 💉 Dependency Injection with Hilt
-- 🧪 Unit & UI Testing support
+* 📋 Create, update, and delete tasks
+* 📴 Works fully offline – with **automatic sync** when internet is available
+* 🔄 Powered by **WorkManager** for background sync
+* ☁️ Firebase Firestore integration
+* ✨ Modern architecture with Clean Architecture principles
+* ✅ MVVM + MVI hybrid pattern
+* 💉 Dependency Injection with Hilt
+* 🧪 Unit & UI Testing support
 
 ---
 
 ## 🧱 Tech Stack
 
-| Layer         | Libraries & Tools                     |
-|---------------|----------------------------------------|
-| UI            | Jetpack Compose, Navigation-Compose    |
-| Domain        | Kotlin Coroutines, Sealed Classes      |
-| Data          | Room, Firebase Firestore, WorkManager  |
-| DI            | Hilt (with custom Worker injection)    |
-| Testing       | JUnit, Turbine, Coroutine Test         |
-| Build System  | Gradle Kotlin DSL + Version Catalog    |
-| Modularized   | Feature-first structure (`:task`, `:auth`, etc.) |
+| Layer        | Libraries & Tools                                |
+| ------------ | ------------------------------------------------ |
+| UI           | Jetpack Compose, Navigation-Compose              |
+| Domain       | Kotlin Coroutines, Sealed Classes                |
+| Data         | Room, Firebase Firestore, WorkManager            |
+| DI           | Hilt (with custom Worker injection)              |
+| Testing      | JUnit, Turbine, Coroutine Test                   |
+| Build System | Gradle Kotlin DSL + Version Catalog              |
+| Modularized  | Feature-first structure (`:task`, `:auth`, etc.) |
 
 ---
 
 ## 🗂️ Module Structure
+
+```
 app/
 ├── core/
-│ ├── common/
-│ ├── domain/
-│ └── model/
+│   ├── common/
+│   ├── domain/
+│   └── model/
 ├── data/
-│ └── task/
+│   └── task/
 ├── feature/
-│ └── task/
+│   └── task/
 └── ui/
-
+```
 
 ---
 
@@ -55,8 +57,20 @@ app/
 
 ---
 
+## 🧪 Continuous Integration (CI)
 
+This project uses [GitHub Actions](https://github.com/features/actions) to automate testing and builds.
 
+📁 Workflow file: `.github/workflows/android-ci.yml`
+
+✅ On every push/PR to `main` or `develop`, the CI will:
+
+* Build the app
+* Run unit tests
+* Optionally run UI tests on emulator
+
+➡ You can see the status in the [Actions tab](../../actions).
+
+---
 
 UI tests and integration tests coming soon.
-
