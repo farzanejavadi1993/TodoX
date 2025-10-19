@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.fermer.task"
-    compileSdk = 36
+    compileSdk = 35
 
     defaultConfig {
         minSdk = 24
